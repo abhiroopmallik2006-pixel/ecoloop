@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ecoloop-green-challenge
+    runtime: node
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
